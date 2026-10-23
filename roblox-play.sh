@@ -16,6 +16,8 @@ fi
 
 # Deep link first (opens Roblox app directly)
 if command -v am >/dev/null 2>&1; then
+  am start -n com.roblox.client/.StartupActivity >/dev/null 2>&1 || true
+  sleep 2
   am start -a android.intent.action.VIEW -d "roblox://experiences/start?placeId=${PLACE_ID}" >/dev/null 2>&1 || true
   sleep 1
 fi
